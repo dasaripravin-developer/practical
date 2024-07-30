@@ -14,19 +14,3 @@ const sqlConfig = {
 mssql.connect(sqlConfig)
 console.log('db connection done')
 export {mssql}
-
-// export async function initDb() {
-//     return new Promise(async (resolve, reject) => {
-
-//         try {
-//             await mssql.connect(sqlConfig)
-//             console.log('db connection done')
-//             resolve()
-//         } catch(err) {
-//             console.log('erro while db connection - ', err)
-//             reject(err)
-//         }
-//     })
-// }
-
-// initDb()
