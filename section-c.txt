@@ -1,0 +1,37 @@
+Section C : Real world scenario
+
+1.	Add a new table stock to track stock levels for each product with following columsn:
+Id, product_id, quantity, update_at
+
+Answer:
+CREATE TABLE Stock(id INT PRIMARY KEY IDENTITY(1,1), product_id INT FOREIGN KEY REFERENCES products(id), updated_at DATETIME DEFAULT GETDATE(), quantity INT);
+
+2.	Implementation of CRUD
+2.1	add stock 
+Answer:
+
+INSERT INTO Stock (product_id, quantity) VALUES(1, 10);
+
+2.2	update the stock for product 1
+
+Answer:
+UPDATE Stock SET quantity = 100, updated_at = GETDATE() WHERE product_id=1;
+
+2.3	to view current stock of product 1
+Answer:
+SELECT quantity FROM Stock WHERE product_id = 1;
+
+2.4	get stock data
+
+Answer:
+SELECT product_id, quantity, updated_at FROM Stock;
+
+2.5	get stock data to send report mail
+Answer:
+SELECT product_id, quantity, updated_at FROM Stock;
+
+3.	Implement pagination
+
+Answer:
+SELECT id, name, description, price FROM products ORDER BY id OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
+Note: We need to change the value of offset and next number rows in every query as pagination.
